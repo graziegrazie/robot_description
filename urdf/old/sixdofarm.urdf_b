@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="6dofarm">
+
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 1.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 1.0 1.0"/>
+  </material>
+<!--
+  <link name="world"/>
+  <joint name="world2base" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+  </joint>
+-->
+  <link name="base"/>
+  <joint name="fixed" type="fixed">
+    <parent link="base"/>
+    <child link="link1"/>
+  </joint>
+
+  <!-- Link 1 -->
+  <link name="link1">
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <geometry>
+        <box size="0.05 0.05 0.15"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <geometry>
+        <box size="0.05 0.05 0.15"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+</robot>

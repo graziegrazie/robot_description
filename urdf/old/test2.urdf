@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot name="multipleshapes">
+  <material name="red">
+    <color rgba="1.0 0.0 0.0 1.0"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <link name="right_leg">
+    <visual>
+      <geometry>
+        <box size="0.6 .2 .1"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_leg" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_leg"/>
+  </joint>
+
+  <link name="world"/>
+  <joint name="world_to_base_link" type="fixed">
+    <parent link="world"/>
+    <child link="base_link" />
+  </joint>
+
+  <gazebo reference="base_link">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="right_leg">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+</robot>
+
